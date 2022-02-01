@@ -1,16 +1,113 @@
-// ToDo
-/*
-Task 1
-Import array with users (from user1.json file) and write a function that will check if the phone number for every single user contains only digits
-Result:
-- if the phone number contains only digits then log true in the console
-- if the phone number does not contain only digits then log which user's phone number is not correct e.g. "Phone number of user with ID 2 is not correct"
+users_list = require("./users1.json");
+users_list2 = require("./users2");
 
-Task 2
-Import array with users (from user1.json file) and users (from user2.js file) and compare them
-Result:
-- if the first email address of users1 is the same as the first email address of users2 (users1.users[1].emailAddress === users2.users[1].emailAddress) then do not log anything
-- if the first email address of users1 is not the same as the first email address of users2 then log in the console e.g. "Email addresses of user with ID 1 are not the same. First email is: racks.jacson@test.tt; but second email is: racks.jecson@test.tt".
+console.log("------------------------------------------------------------");
+console.log("Task 1: ");
+console.log("------------------------------------------------------------");
 
-Compare email addresses, first names, last names and phone numbers.
-*/
+function checkPhoneNumber() {
+  for (let i = 0; i < users_list.users.length; i++) {
+    if (users_list.users[i].phoneNumber.match(/^[0-9]+$/)) {
+      console.log(
+        "Phone number of user with ID " +
+          users_list.users[i].userId +
+          " contains only digits : " +
+          true
+      );
+    } else {
+      console.log(
+        "Phone number of user with ID " +
+          users_list.users[i].userId +
+          " is not correct"
+      );
+    }
+  }
+}
+
+checkPhoneNumber();
+
+console.log("------------------------------------------------------------");
+console.log("Task 2: ");
+console.log("------------------------------------------------------------");
+
+function compareUsersEmail() {
+  for (var i = 0; i < users_list2.users.length; ++i) {
+    if (
+      users_list.users[i].emailAddress !== users_list2.users[i].emailAddress
+    ) {
+      console.log(
+        "Email addresses of user with ID " +
+          users_list.users[i].userId +
+          " are not the same. First email is: " +
+          users_list.users[i].emailAddress +
+          " but second email is: " +
+          users_list2.users[i].emailAddress
+      );
+    }
+  }
+}
+
+function compareUsersFirstName() {
+  for (var i = 0; i < users_list2.users.length; ++i) {
+    if (users_list.users[i].firstName !== users_list2.users[i].firstName) {
+      console.log(
+        "First Names of user with ID " +
+          users_list.users[i].userId +
+          " are not the same. First First name is: " +
+          users_list.users[i].firstName +
+          " but second First Name is: " +
+          users_list2.users[i].firstName
+      );
+    }
+  }
+}
+
+function compareUsersLastName() {
+  for (var i = 0; i < users_list2.users.length; ++i) {
+    if (users_list.users[i].lastName !== users_list2.users[i].lastName) {
+      console.log(
+        "Last Names of user with ID " +
+          users_list.users[i].userId +
+          " are not the same. First Last name is: " +
+          users_list.users[i].lastName +
+          " but second Last Name is: " +
+          users_list2.users[i].lastName
+      );
+    }
+  }
+}
+
+function compareUsersLastName() {
+  for (var i = 0; i < users_list2.users.length; ++i) {
+    if (users_list.users[i].lastName !== users_list2.users[i].lastName) {
+      console.log(
+        "Last Names of user with ID " +
+          users_list.users[i].userId +
+          " are not the same. First Last name is: " +
+          users_list.users[i].lastName +
+          " but second Last Name is: " +
+          users_list2.users[i].lastName
+      );
+    }
+  }
+}
+
+function compareUsersPhoneNumber() {
+  for (var i = 0; i < users_list2.users.length; ++i) {
+    if (users_list.users[i].phoneNumber !== users_list2.users[i].phoneNumber) {
+      console.log(
+        "Phone numbers of user with ID " +
+          users_list.users[i].userId +
+          " are not the same. First Phone number is: " +
+          users_list.users[i].phoneNumber +
+          " but second phone number is: " +
+          users_list2.users[i].phoneNumber
+      );
+    }
+  }
+}
+
+compareUsersEmail();
+compareUsersFirstName();
+compareUsersLastName();
+compareUsersPhoneNumber();
